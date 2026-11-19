@@ -88,7 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="© 2025 Fossorial, Inc."
+                        android:text="© 2025 CausQ"
                         android:textSize="16sp"
                         android:textColor="?attr/colorOnSurface" />
                 </LinearLayout>

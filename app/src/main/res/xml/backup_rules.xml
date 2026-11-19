@@ -9,7 +9,7 @@
 <full-backup-content>
     <!-- Exclude encrypted SharedPreferences files -->
     <!-- These cannot be restored because the Android Keystore master key is not backed up -->
-    <exclude domain="sharedpref" path="pangolin_secrets.xml"/>
+    <exclude domain="sharedpref" path="praxis_secrets.xml"/>
     <exclude domain="sharedpref" path="__androidx_security_crypto_encrypted_prefs_key_keyset__.xml"/>
     <exclude domain="sharedpref" path="__androidx_security_crypto_encrypted_prefs_value_keyset__.xml"/>
     

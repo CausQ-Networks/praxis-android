@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: Apache-2.0
  *
  * Copyright © 2017-2021 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
- * Copyright © 2025-2026 Fossorial, Inc. <support@pangolin.net>. All Rights Reserved.
+ * Copyright © 2025-2026 CausQ <support@praxis.net>. All Rights Reserved.
  */
 
 #include <jni.h>
@@ -17,7 +17,7 @@ extern char *getNetworkSettings();
 extern char *setPowerMode(char *mode);
 extern char *setSystemDNS(char *serversJSON);
 
-JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_initOlm(JNIEnv *env, jclass c, jstring configJSON)
+JNIEXPORT jstring JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_initOlm(JNIEnv *env, jclass c, jstring configJSON)
 {
 	const char *config_str = (*env)->GetStringUTFChars(env, configJSON, 0);
 	char *result = initOlm((char *)config_str);
@@ -29,7 +29,7 @@ JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_init
 	return ret;
 }
 
-JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_startTunnel(JNIEnv *env, jclass c, jint fd, jstring configJSON)
+JNIEXPORT jstring JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_startTunnel(JNIEnv *env, jclass c, jint fd, jstring configJSON)
 {
 	const char *config_str = (*env)->GetStringUTFChars(env, configJSON, 0);
 	char *result = startTunnel(fd, (char *)config_str);
@@ -41,7 +41,7 @@ JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_star
 	return ret;
 }
 
-JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_addDevice(JNIEnv *env, jclass c, jint fd)
+JNIEXPORT jstring JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_addDevice(JNIEnv *env, jclass c, jint fd)
 {
 	char *result = addDevice(fd);
 	if (!result)
@@ -51,7 +51,7 @@ JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_addD
 	return ret;
 }
 
-JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_stopTunnel(JNIEnv *env, jclass c)
+JNIEXPORT jstring JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_stopTunnel(JNIEnv *env, jclass c)
 {
 	char *result = stopTunnel();
 	if (!result)
@@ -61,12 +61,12 @@ JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_stop
 	return ret;
 }
 
-JNIEXPORT jlong JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_getNetworkSettingsVersion(JNIEnv *env, jclass c)
+JNIEXPORT jlong JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_getNetworkSettingsVersion(JNIEnv *env, jclass c)
 {
 	return (jlong)getNetworkSettingsVersion();
 }
 
-JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_getNetworkSettings(JNIEnv *env, jclass c)
+JNIEXPORT jstring JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_getNetworkSettings(JNIEnv *env, jclass c)
 {
 	char *result = getNetworkSettings();
 	if (!result)
@@ -76,7 +76,7 @@ JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_getN
 	return ret;
 }
 
-JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_nativeSetPowerMode(JNIEnv *env, jclass c, jstring mode)
+JNIEXPORT jstring JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_nativeSetPowerMode(JNIEnv *env, jclass c, jstring mode)
 {
 	const char *mode_str = (*env)->GetStringUTFChars(env, mode, 0);
 	char *result = setPowerMode((char *)mode_str);
@@ -88,7 +88,7 @@ JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_nati
 	return ret;
 }
 
-JNIEXPORT jstring JNICALL Java_net_pangolin_Pangolin_PacketTunnel_GoBackend_setSystemDNS(JNIEnv *env, jclass c, jstring serversJSON)
+JNIEXPORT jstring JNICALL Java_net_praxis_Praxis_PacketTunnel_GoBackend_setSystemDNS(JNIEnv *env, jclass c, jstring serversJSON)
 {
 	const char *servers_str = (*env)->GetStringUTFChars(env, serversJSON, 0);
 	char *result = setSystemDNS((char *)servers_str);

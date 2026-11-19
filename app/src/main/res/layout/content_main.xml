@@ -531,7 +531,7 @@
 
                 <!-- How Praxis Works Link -->
                 <LinearLayout
-                    android:id="@+id/link_how_pangolin_works"
+                    android:id="@+id/link_how_praxis_works"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"

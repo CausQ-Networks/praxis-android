@@ -11,7 +11,7 @@
 <data-extraction-rules>
     <cloud-backup>
         <!-- Exclude encrypted SharedPreferences files -->
-        <exclude domain="sharedpref" path="pangolin_secrets.xml"/>
+        <exclude domain="sharedpref" path="praxis_secrets.xml"/>
         <exclude domain="sharedpref" path="__androidx_security_crypto_encrypted_prefs_key_keyset__.xml"/>
         <exclude domain="sharedpref" path="__androidx_security_crypto_encrypted_prefs_value_keyset__.xml"/>
         
@@ -21,7 +21,7 @@
     
     <device-transfer>
         <!-- Also exclude from device-to-device transfer for the same reasons -->
-        <exclude domain="sharedpref" path="pangolin_secrets.xml"/>
+        <exclude domain="sharedpref" path="praxis_secrets.xml"/>
         <exclude domain="sharedpref" path="__androidx_security_crypto_encrypted_prefs_key_keyset__.xml"/>
         <exclude domain="sharedpref" path="__androidx_security_crypto_encrypted_prefs_value_keyset__.xml"/>
         <exclude domain="file" path="Praxis/accounts.json"/>
