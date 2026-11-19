@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("net.pangolin.Pangolin", appContext.packageName)
+        assertEquals("com.causq.praxis", appContext.packageName)
     }
 }

@@ -26,7 +26,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="24dp"
-            android:contentDescription="Pangolin logo" />
+            android:contentDescription="Praxis logo" />
 
         <!-- Server Down Banner -->
         <com.google.android.material.card.MaterialCardView
@@ -322,7 +322,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_person"
-                            android:tint="@color/pangolin_primary"
+                            android:tint="@color/praxis_primary"
                             android:contentDescription="Account icon" />
 
                         <TextView
@@ -378,7 +378,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_business"
-                            android:tint="@color/pangolin_primary"
+                            android:tint="@color/praxis_primary"
                             android:contentDescription="Organization icon" />
 
                         <TextView
@@ -435,7 +435,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_public"
-                            android:tint="@color/pangolin_primary"
+                            android:tint="@color/praxis_primary"
                             android:contentDescription="Exit node icon" />
 
                         <TextView
@@ -529,7 +529,7 @@
 
                 </LinearLayout>
 
-                <!-- How Pangolin Works Link -->
+                <!-- How Praxis Works Link -->
                 <LinearLayout
                     android:id="@+id/link_how_pangolin_works"
                     android:layout_width="match_parent"
@@ -546,7 +546,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="How Pangolin Works"
+                        android:text="How Praxis Works"
                         android:textSize="16sp"
                         android:textColor="?attr/colorOnSurface" />
 

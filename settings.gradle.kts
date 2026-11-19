@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Pangolin"
+rootProject.name = "Praxis"
 include(":app")
 include(":tunnel")

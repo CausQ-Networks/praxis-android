@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -15,18 +15,18 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
-import net.pangolin.Pangolin.PacketTunnel.GoBackend
-import net.pangolin.Pangolin.util.APIClient
-import net.pangolin.Pangolin.util.AccountManager
-import net.pangolin.Pangolin.util.AndroidFingerprintCollector
-import net.pangolin.Pangolin.util.AuthManager
-import net.pangolin.Pangolin.util.ConfigManager
-import net.pangolin.Pangolin.util.FingerprintManager
-import net.pangolin.Pangolin.util.SecretManager
-import net.pangolin.Pangolin.util.SocketManager
-import net.pangolin.Pangolin.util.TunnelManager
-import net.pangolin.Pangolin.util.TunnelStartResult
-import net.pangolin.Pangolin.util.TunnelState
+import com.causq.praxis.PacketTunnel.GoBackend
+import com.causq.praxis.util.APIClient
+import com.causq.praxis.util.AccountManager
+import com.causq.praxis.util.AndroidFingerprintCollector
+import com.causq.praxis.util.AuthManager
+import com.causq.praxis.util.ConfigManager
+import com.causq.praxis.util.FingerprintManager
+import com.causq.praxis.util.SecretManager
+import com.causq.praxis.util.SocketManager
+import com.causq.praxis.util.TunnelManager
+import com.causq.praxis.util.TunnelStartResult
+import com.causq.praxis.util.TunnelState
 import java.io.File
 import java.util.concurrent.ConcurrentHashMap
 
@@ -119,8 +119,8 @@ internal class ReconnectBackoff(
  * process recreation. Keeping this graph outside Activity lets the platform resume an
  * existing encrypted account without opening the UI or creating a competing tunnel manager.
  */
-class PangolinRuntime(private val context: Context) {
-    private val tag = "PangolinRuntime"
+class PraxisRuntime(private val context: Context) {
+    private val tag = "PraxisRuntime"
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val reconnectBackoff = ReconnectBackoff()
     private val reconnectLock = Any()
@@ -162,7 +162,7 @@ class PangolinRuntime(private val context: Context) {
         AndroidFingerprintCollector(context),
     )
     val apiClient = APIClient(
-        "https://app.pangolin.net",
+        "https://app.praxis.causq.com",
         versionName = runCatching {
             context.packageManager.getPackageInfo(context.packageName, 0).versionName
         }.getOrNull() ?: "unknown",

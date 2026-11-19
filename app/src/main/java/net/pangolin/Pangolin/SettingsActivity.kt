@@ -1,5 +1,5 @@
 
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -19,9 +19,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import net.pangolin.Pangolin.databinding.SettingsActivityBinding
-import net.pangolin.Pangolin.util.DnsServerAddress
-import net.pangolin.Pangolin.util.TunnelManager
+import com.causq.praxis.databinding.SettingsActivityBinding
+import com.causq.praxis.util.DnsServerAddress
+import com.causq.praxis.util.TunnelManager
 
 class SettingsActivity : BaseNavigationActivity() {
 

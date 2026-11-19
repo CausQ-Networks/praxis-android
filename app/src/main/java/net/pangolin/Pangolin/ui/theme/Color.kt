@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.ui.theme
+package com.causq.praxis.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

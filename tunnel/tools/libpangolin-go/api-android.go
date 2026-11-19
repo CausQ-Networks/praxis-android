@@ -12,7 +12,7 @@ import (
 	"sync"
 	"syscall"
 
-	olmpkg "github.com/fosrl/olm/olm"
+	olmpkg "github.com/CausQ-Networks/praxis-olm/olm"
 )
 import "time"
 
@@ -64,7 +64,7 @@ var (
 	olmInstance      *olmpkg.Olm
 )
 
-// olmVersionOverride is the version of the github.com/fosrl/olm module this
+// olmVersionOverride is the version of the github.com/CausQ-Networks/praxis-olm module this
 // library was built against (with any "v" prefix stripped), set via -ldflags
 // from go.mod (see Makefile). It's passed to olm as OlmConfig.OlmVersion so
 // the server sees the olm version separately from the app's Version. If it

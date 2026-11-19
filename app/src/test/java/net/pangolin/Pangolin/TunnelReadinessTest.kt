@@ -1,7 +1,7 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
-import net.pangolin.Pangolin.util.ReadinessEpoch
-import net.pangolin.Pangolin.util.TunnelState
+import com.causq.praxis.util.ReadinessEpoch
+import com.causq.praxis.util.TunnelState
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test

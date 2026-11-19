@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
@@ -82,7 +82,7 @@ class APIClient(
     private fun normalizeBaseURL(url: String): String {
         var normalized = url.trim()
         if (normalized.isEmpty()) {
-            return "https://app.pangolin.net"
+            return "https://app.praxis.causq.com"
         }
         if (!normalized.startsWith("http://") && !normalized.startsWith("https://")) {
             normalized = "https://$normalized"

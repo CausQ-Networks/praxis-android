@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.app.NotificationManager
 import android.content.Context
@@ -7,7 +7,7 @@ import android.net.VpnService
 import androidx.core.content.ContextCompat
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import net.pangolin.Pangolin.PacketTunnel.GoBackend
+import com.causq.praxis.PacketTunnel.GoBackend
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
@@ -22,7 +22,7 @@ class VpnServiceLifecycleTest {
     fun systemStartRetainsOwnershipBeforeAnyTunnelIsEstablished() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         assumeTrue("VPN consent is required", VpnService.prepare(context) == null)
-        val runtime = (context as PangolinApplication).runtime
+        val runtime = (context as PraxisApplication).runtime
         assumeTrue("Run on a fresh test installation without an account", runtime.accountManager.accounts.isEmpty())
         val intent = Intent(context, GoBackend.VpnService::class.java)
             .setAction(VpnService.SERVICE_INTERFACE)
@@ -49,7 +49,7 @@ class VpnServiceLifecycleTest {
             VpnService.prepare(context) == null,
         )
         val intent = Intent(context, GoBackend.VpnService::class.java).setAction(
-            "net.pangolin.Pangolin.PacketTunnel.action.MANUAL_START",
+            "com.causq.praxis.PacketTunnel.action.MANUAL_START",
         )
 
         ContextCompat.startForegroundService(context, intent)

@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import android.content.Context
 import android.util.Log
@@ -9,14 +9,14 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import net.pangolin.Pangolin.PangolinApplication
-import net.pangolin.Pangolin.util.SocketManager
+import com.causq.praxis.PraxisApplication
+import com.causq.praxis.util.SocketManager
 
 class FingerprintManager(
     private val context: Context,
     private val socketManager: SocketManager,
     private val collector: AndroidFingerprintCollector
-) : PangolinApplication.StandbyListener {
+) : PraxisApplication.StandbyListener {
     private val tag = "FingerprintManager"
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private var job: Job? = null
@@ -33,7 +33,7 @@ class FingerprintManager(
         Log.d(tag, "Starting fingerprint polling (interval: ${intervalSeconds}s)")
         
         // Register for standby notifications
-        (context.applicationContext as? PangolinApplication)?.registerStandbyListener(this)
+        (context.applicationContext as? PraxisApplication)?.registerStandbyListener(this)
 
         job = scope.launch {
             while (isActive) {
@@ -53,7 +53,7 @@ class FingerprintManager(
         Log.d(tag, "Stopping fingerprint polling")
         
         // Unregister from standby notifications
-        (context.applicationContext as? PangolinApplication)?.unregisterStandbyListener(this)
+        (context.applicationContext as? PraxisApplication)?.unregisterStandbyListener(this)
         
         job?.cancel()
         job = null

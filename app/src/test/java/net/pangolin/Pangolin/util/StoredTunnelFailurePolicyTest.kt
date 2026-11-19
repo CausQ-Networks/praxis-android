@@ -1,6 +1,6 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
-import net.pangolin.Pangolin.PacketTunnel.BackendException
+import com.causq.praxis.PacketTunnel.BackendException
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test

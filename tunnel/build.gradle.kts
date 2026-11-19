@@ -1,11 +1,11 @@
-val pkg: String = "net.pangolin.Pangolin.PacketTunnel"
+val pkg: String = "com.causq.praxis.PacketTunnel"
 
 plugins {
     alias(libs.plugins.android.library)
 }
 
 android {
-    namespace = "net.pangolin.Pangolin.PacketTunnel"
+    namespace = "com.causq.praxis.PacketTunnel"
     compileSdk {
         version = release(36)
     }
@@ -24,7 +24,7 @@ android {
         all {
            externalNativeBuild {
                 cmake {
-                    targets("libpangolin-go.so")
+                    targets("libpraxis-go.so")
                     arguments("-DGRADLE_USER_HOME=${project.gradle.gradleUserHomeDir}")
                     arguments("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
                 }

@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import android.content.ComponentName
 import android.content.Context
@@ -23,12 +23,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import net.pangolin.Pangolin.PacketTunnel.BackendException
-import net.pangolin.Pangolin.PacketTunnel.GoBackend
-import net.pangolin.Pangolin.PacketTunnel.InitConfig
-import net.pangolin.Pangolin.PacketTunnel.Tunnel
-import net.pangolin.Pangolin.PacketTunnel.TunnelConfig
-import net.pangolin.Pangolin.tile.PangolinTileService
+import com.causq.praxis.PacketTunnel.BackendException
+import com.causq.praxis.PacketTunnel.GoBackend
+import com.causq.praxis.PacketTunnel.InitConfig
+import com.causq.praxis.PacketTunnel.Tunnel
+import com.causq.praxis.PacketTunnel.TunnelConfig
+import com.causq.praxis.tile.PraxisTileService
 import java.io.File
 import java.util.concurrent.atomic.AtomicLong
 
@@ -307,7 +307,7 @@ class TunnelManager private constructor(
                 val initConfigBuilder = InitConfig.Builder()
                     .setEnableAPI(true)
                     .setLogLevel("debug")
-                    .setAgent("Pangolin Android")
+                    .setAgent("Praxis Android")
                     .setVersion(context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "unknown")
                     .setSocketPath(File(context.filesDir, "pangolin.sock").absolutePath)
                 
@@ -630,7 +630,7 @@ class TunnelManager private constructor(
      */
     private fun createTunnel(): Tunnel {
         return object : Tunnel {
-            override fun getName(): String = "pangolin"
+            override fun getName(): String = "praxis"
 
             override fun onStateChange(newState: Tunnel.State) {
                 Log.d(tag, "Tunnel state changed to: $newState")
@@ -674,7 +674,7 @@ class TunnelManager private constructor(
     private fun notifyTileUpdate() {
         TileService.requestListeningState(
             context,
-            ComponentName(context, PangolinTileService::class.java)
+            ComponentName(context, PraxisTileService::class.java)
         )
     }
 

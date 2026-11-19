@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import android.content.Context
 import android.util.Log
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import net.pangolin.Pangolin.PangolinApplication
+import com.causq.praxis.PraxisApplication
 
 /**
  * Manager for polling tunnel status from the socket manager.
@@ -21,7 +21,7 @@ class StatusPollingManager(
     private val context: Context,
     private val socketManager: SocketManager,
     private val pollingIntervalMs: Long = 3000L
-) : PangolinApplication.StandbyListener {
+) : PraxisApplication.StandbyListener {
     private val tag = "StatusPollingManager"
     private val json = Json { 
         ignoreUnknownKeys = true
@@ -71,7 +71,7 @@ class StatusPollingManager(
         _errorFlow.value = null
         
         // Register for standby notifications
-        (context.applicationContext as? PangolinApplication)?.registerStandbyListener(this)
+        (context.applicationContext as? PraxisApplication)?.registerStandbyListener(this)
         
         // Start the polling coroutine
         pollingJob = coroutineScope.launch {
@@ -196,7 +196,7 @@ class StatusPollingManager(
         isPaused = false
         
         // Unregister from standby notifications
-        (context.applicationContext as? PangolinApplication)?.unregisterStandbyListener(this)
+        (context.applicationContext as? PraxisApplication)?.unregisterStandbyListener(this)
         
         // Cancel the polling job
         pollingJob?.cancel()

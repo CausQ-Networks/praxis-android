@@ -11,13 +11,13 @@
             app:iconSpaceReserved="false" />
         <SwitchPreferenceCompat
             android:key="overrideDns"
-            android:summary="When enabled, the client uses custom DNS servers to resolve internal resources and aliases. This overrides your system's default DNS settings. Queries that cannot be resolved as a Pangolin resource will be forwarded to your configured Upstream DNS Server."
+            android:summary="When enabled, the client uses custom DNS servers to resolve internal resources and aliases. This overrides your system's default DNS settings. Queries that cannot be resolved as a Praxis resource will be forwarded to your configured Upstream DNS Server."
             android:title="Enable Aliases (DNS Override)"
             android:defaultValue="true"
             app:iconSpaceReserved="false" />
         <SwitchPreferenceCompat
             android:key="tunnelDns"
-            android:summary="When enabled, DNS queries are routed through the tunnel for remote resolution. To ensure queries are tunneled correctly, you must define the DNS server as a Pangolin resource and enter its address as an Upstream DNS Server."
+            android:summary="When enabled, DNS queries are routed through the tunnel for remote resolution. To ensure queries are tunneled correctly, you must define the DNS server as a Praxis resource and enter its address as an Upstream DNS Server."
             android:title="DNS Over Tunnel"
             app:iconSpaceReserved="false" />
         <EditTextPreference
@@ -59,7 +59,7 @@
             app:iconSpaceReserved="false">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://docs.pangolin.net/manage/clients/configure-client" />
+                android:data="https://docs.praxis.causq.com/manage/clients/configure-client" />
         </Preference>
     </PreferenceCategory>
 

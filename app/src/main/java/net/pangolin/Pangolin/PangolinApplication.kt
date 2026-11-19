@@ -1,26 +1,26 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.app.Application
 import android.util.Log
 import androidx.preference.PreferenceManager
-import net.pangolin.Pangolin.util.CrashHandler
-import net.pangolin.Pangolin.util.SocketManager
-import net.pangolin.Pangolin.util.StandbyDetector
+import com.causq.praxis.util.CrashHandler
+import com.causq.praxis.util.SocketManager
+import com.causq.praxis.util.StandbyDetector
 
 /**
- * Application class for Pangolin.
+ * Application class for Praxis.
  * Manages app-wide resources and lifecycle events, including standby detection
  * to optimize battery usage by pausing background operations when appropriate.
  */
-class PangolinApplication : Application(), StandbyDetector.StandbyListener {
+class PraxisApplication : Application(), StandbyDetector.StandbyListener {
     
-    private val tag = "PangolinApplication"
+    private val tag = "PraxisApplication"
     private var standbyDetector: StandbyDetector? = null
     
     // List of listeners that want to be notified of standby changes
     private val standbyListeners = mutableListOf<StandbyListener>()
 
-    lateinit var runtime: PangolinRuntime private set
+    lateinit var runtime: PraxisRuntime private set
     lateinit var socketManager: SocketManager private set
     
     override fun onCreate() {
@@ -29,7 +29,7 @@ class PangolinApplication : Application(), StandbyDetector.StandbyListener {
         // Initialize crash handler first to capture any crashes during initialization
         CrashHandler.initialize(this)
         
-        Log.d(tag, "Pangolin application starting")
+        Log.d(tag, "Praxis application starting")
 
         // Persist the Settings screen's defaults before anything reads them. Otherwise a
         // setting the user never opened Settings for is read with the code's fallback,
@@ -38,7 +38,7 @@ class PangolinApplication : Application(), StandbyDetector.StandbyListener {
 
         // Android creates Application before a system-started VpnService, so this graph is
         // available even when no Activity has been opened in the current process.
-        runtime = PangolinRuntime(this)
+        runtime = PraxisRuntime(this)
         socketManager = runtime.socketManager
 
         // Initialize standby detector
@@ -48,7 +48,7 @@ class PangolinApplication : Application(), StandbyDetector.StandbyListener {
     
     override fun onTerminate() {
         super.onTerminate()
-        Log.d(tag, "Pangolin application terminating")
+        Log.d(tag, "Praxis application terminating")
         standbyDetector?.stop()
         standbyDetector = null
     }

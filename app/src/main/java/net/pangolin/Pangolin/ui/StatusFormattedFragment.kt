@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.ui
+package com.causq.praxis.ui
 
 import android.content.Intent
 import android.graphics.Color
@@ -17,15 +17,15 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import net.pangolin.Pangolin.MainActivity
-import net.pangolin.Pangolin.R
-import net.pangolin.Pangolin.util.PANGOLIN_SERVER_PEER_KEY
-import net.pangolin.Pangolin.util.SiteResource
-import net.pangolin.Pangolin.util.SocketStatusResponse
-import net.pangolin.Pangolin.util.TunnelManager
-import net.pangolin.Pangolin.util.gatewayLabel
-import net.pangolin.Pangolin.util.peerDetails
-import net.pangolin.Pangolin.util.relativeTime
+import com.causq.praxis.MainActivity
+import com.causq.praxis.R
+import com.causq.praxis.util.PANGOLIN_SERVER_PEER_KEY
+import com.causq.praxis.util.SiteResource
+import com.causq.praxis.util.SocketStatusResponse
+import com.causq.praxis.util.TunnelManager
+import com.causq.praxis.util.gatewayLabel
+import com.causq.praxis.util.peerDetails
+import com.causq.praxis.util.relativeTime
 
 /**
  * Fragment that displays the tunnel status in a native UI with cards.
@@ -223,8 +223,8 @@ class StatusFormattedFragment : Fragment() {
 
     /**
      * Update the peers section with peer cards. The exit node (the client's own
-     * connection to the Pangolin server, used for site resources hosted on the exit
-     * node) is shown first as a "Pangolin Server" card, pinned above the regular peers.
+     * connection to the Praxis server, used for site resources hosted on the exit
+     * node) is shown first as a "Praxis Server" card, pinned above the regular peers.
      */
     private fun updatePeers(status: SocketStatusResponse) {
         peersContainer?.removeAllViews()
@@ -239,7 +239,7 @@ class StatusFormattedFragment : Fragment() {
 
         status.exitNode?.let { exitNode ->
             val exitNodeCard = createPeerCard(
-                PANGOLIN_SERVER_PEER_KEY, "Pangolin Server", exitNode.endpoint, exitNode.connected ?: false
+                PANGOLIN_SERVER_PEER_KEY, "Praxis Server", exitNode.endpoint, exitNode.connected ?: false
             )
             peersContainer?.addView(exitNodeCard)
         }
@@ -298,7 +298,7 @@ class StatusFormattedFragment : Fragment() {
     }
 
     /**
-     * Show the details of a peer (or the Pangolin Server row) in a dialog. It follows live status
+     * Show the details of a peer (or the Praxis Server row) in a dialog. It follows live status
      * updates while open, like the Windows app's site sheet.
      */
     private fun showPeerDetails(key: String) {

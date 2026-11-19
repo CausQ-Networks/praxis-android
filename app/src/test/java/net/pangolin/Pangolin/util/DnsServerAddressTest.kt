@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse

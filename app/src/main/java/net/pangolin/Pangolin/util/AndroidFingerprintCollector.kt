@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import android.app.admin.DevicePolicyManager
 import android.util.Log
@@ -6,8 +6,8 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.biometric.BiometricManager
 import android.os.Build
-import net.pangolin.Pangolin.util.Fingerprint
-import net.pangolin.Pangolin.util.Postures
+import com.causq.praxis.util.Fingerprint
+import com.causq.praxis.util.Postures
 import java.security.MessageDigest
 import java.util.UUID
 import android.provider.Settings

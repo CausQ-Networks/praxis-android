@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import android.content.Context
 import android.util.Log
@@ -229,7 +229,7 @@ class AccountManager private constructor(private val context: Context) {
     }
 
     private fun getAccountStoreFile(): File {
-        val dir = File(context.filesDir, "Pangolin")
+        val dir = File(context.filesDir, "Praxis")
         if (!dir.exists()) {
             dir.mkdirs()
         }

@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.Manifest
 import android.app.NotificationManager
@@ -16,9 +16,9 @@ import androidx.preference.SwitchPreferenceCompat
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import net.pangolin.Pangolin.PacketTunnel.GoBackend
-import net.pangolin.Pangolin.util.TunnelManager
-import net.pangolin.Pangolin.util.TunnelState
+import com.causq.praxis.PacketTunnel.GoBackend
+import com.causq.praxis.util.TunnelManager
+import com.causq.praxis.util.TunnelState
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertSame
@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit
 class VpnNotificationTest {
     @Test
     fun notificationSettingStaysUsableWhileConnectionSettingsAreLocked() {
-        val context = ApplicationProvider.getApplicationContext<PangolinApplication>()
+        val context = ApplicationProvider.getApplicationContext<PraxisApplication>()
         assumeTrue("Use an isolated installation without accounts", context.runtime.accountManager.accounts.isEmpty())
         PreferenceManager.getDefaultSharedPreferences(context).edit().remove("persistentVpnNotification").commit()
         // Feed the actual settings observer a connected state without requiring an account.
@@ -70,12 +70,12 @@ class VpnNotificationTest {
             Build.VERSION.SDK_INT < 33 || ContextCompat.checkSelfPermission(
                 context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED)
         assumeTrue("Use an isolated installation without accounts",
-            (context as PangolinApplication).runtime.accountManager.accounts.isEmpty())
+            (context as PraxisApplication).runtime.accountManager.accounts.isEmpty())
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         prefs.edit().remove("persistentVpnNotification").commit()
         assertFalse(prefs.getBoolean("persistentVpnNotification", false))
         val intent = Intent(context, GoBackend.VpnService::class.java)
-            .setAction("net.pangolin.Pangolin.PacketTunnel.action.MANUAL_START")
+            .setAction("com.causq.praxis.PacketTunnel.action.MANUAL_START")
         val notifications = context.getSystemService(NotificationManager::class.java)
         val connectivity = context.getSystemService(ConnectivityManager::class.java)
         fun notificationVisible() = notifications.activeNotifications.any { it.id == 1001 }

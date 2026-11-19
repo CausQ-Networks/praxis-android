@@ -1,10 +1,10 @@
-module github.com/fosrl/android
+module github.com/CausQ-Networks/praxis-android
 
 go 1.26.0
 
 require (
-	github.com/fosrl/newt v1.19.1
-	github.com/fosrl/olm v1.10.2
+	github.com/CausQ-Networks/praxis-newt v1.19.1
+	github.com/CausQ-Networks/praxis-olm v1.10.2
 	golang.org/x/sys v0.49.0
 )
 
@@ -34,6 +34,6 @@ require (
 )
 
 // To be used ONLY for local development
-// replace github.com/fosrl/olm => /home/owen/fossorial/olm
+// replace github.com/CausQ-Networks/praxis-olm => /home/owen/fossorial/olm
 
-// replace github.com/fosrl/newt => /home/owen/fossorial/newt
+// replace github.com/CausQ-Networks/praxis-newt => /home/owen/fossorial/newt

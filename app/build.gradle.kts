@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "net.pangolin.Pangolin"
+    namespace = "com.causq.praxis"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "net.pangolin.Pangolin"
+        applicationId = "com.causq.praxis"
         minSdk = 24
         targetSdk = 36
         versionCode = 30

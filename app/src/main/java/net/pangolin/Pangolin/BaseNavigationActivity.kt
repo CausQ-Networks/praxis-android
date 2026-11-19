@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.content.Intent
 import android.os.Bundle

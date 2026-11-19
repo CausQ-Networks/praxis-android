@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +12,7 @@ import androidx.core.content.FileProvider
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
-import net.pangolin.Pangolin.util.ConfigManager
+import com.causq.praxis.util.ConfigManager
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -159,7 +159,7 @@ class LogsActivity : BaseNavigationActivity() {
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_STREAM, uri)
-                putExtra(Intent.EXTRA_SUBJECT, "Pangolin Logs")
+                putExtra(Intent.EXTRA_SUBJECT, "Praxis Logs")
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             }
 
@@ -203,7 +203,7 @@ class LogsActivity : BaseNavigationActivity() {
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "application/zip"
                 putExtra(Intent.EXTRA_STREAM, uri)
-                putExtra(Intent.EXTRA_SUBJECT, "Pangolin Logs (All)")
+                putExtra(Intent.EXTRA_SUBJECT, "Praxis Logs (All)")
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             }
             

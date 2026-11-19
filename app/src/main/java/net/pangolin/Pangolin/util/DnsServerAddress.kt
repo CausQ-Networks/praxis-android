@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 /**
  * Validation and formatting for the user-entered upstream DNS server addresses.

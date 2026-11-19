@@ -1,14 +1,14 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import java.util.Calendar
 import java.util.TimeZone
 
-/** Key used for the synthetic "Pangolin Server" row in the peer details lookup. */
+/** Key used for the synthetic "Praxis Server" row in the peer details lookup. */
 const val PANGOLIN_SERVER_PEER_KEY = "__pangolin_server__"
 
 /**
  * Everything the peer details dialog shows for one row of the Status screen.
- * [connection] and [gateway] are null for the Pangolin Server row, which has neither.
+ * [connection] and [gateway] are null for the Praxis Server row, which has neither.
  */
 data class PeerDetails(
     val name: String,
@@ -27,7 +27,7 @@ fun peerDetails(status: SocketStatusResponse, key: String): PeerDetails? {
     if (key == PANGOLIN_SERVER_PEER_KEY) {
         val exitNode = status.exitNode ?: return null
         return PeerDetails(
-            name = "Pangolin Server",
+            name = "Praxis Server",
             connected = exitNode.connected ?: false,
             connection = null,
             endpoint = exitNode.endpoint,

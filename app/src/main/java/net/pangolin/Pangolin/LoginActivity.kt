@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -11,8 +11,8 @@ import android.text.method.LinkMovementMethod
 import android.text.style.URLSpan
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import net.pangolin.Pangolin.databinding.ActivityLoginBinding
-import net.pangolin.Pangolin.util.AccountManager
+import com.causq.praxis.databinding.ActivityLoginBinding
+import com.causq.praxis.util.AccountManager
 
 class LoginActivity : AppCompatActivity() {
 
@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Setup cloud option click
         binding.cloudOptionCard.setOnClickListener {
-            startSignInCodeActivity("https://app.pangolin.net")
+            startSignInCodeActivity("https://app.praxis.causq.com")
         }
 
         // Setup self-hosted option click

@@ -1,15 +1,15 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
-import net.pangolin.Pangolin.util.ExitNode
-import net.pangolin.Pangolin.util.PANGOLIN_SERVER_PEER_KEY
-import net.pangolin.Pangolin.util.SiteResource
-import net.pangolin.Pangolin.util.SocketPeer
-import net.pangolin.Pangolin.util.SocketStatusResponse
-import net.pangolin.Pangolin.util.connectionLabel
-import net.pangolin.Pangolin.util.gatewayLabel
-import net.pangolin.Pangolin.util.parseRfc3339Millis
-import net.pangolin.Pangolin.util.peerDetails
-import net.pangolin.Pangolin.util.relativeTime
+import com.causq.praxis.util.ExitNode
+import com.causq.praxis.util.PANGOLIN_SERVER_PEER_KEY
+import com.causq.praxis.util.SiteResource
+import com.causq.praxis.util.SocketPeer
+import com.causq.praxis.util.SocketStatusResponse
+import com.causq.praxis.util.connectionLabel
+import com.causq.praxis.util.gatewayLabel
+import com.causq.praxis.util.parseRfc3339Millis
+import com.causq.praxis.util.peerDetails
+import com.causq.praxis.util.relativeTime
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -81,7 +81,7 @@ class PeerDetailsTest {
     fun pangolinServerRowHasNoConnectionOrGateway() {
         val s = status(exitNode = ExitNode(connected = true, endpoint = "1.2.3.4:51820"))
         val d = peerDetails(s, PANGOLIN_SERVER_PEER_KEY)!!
-        assertEquals("Pangolin Server", d.name)
+        assertEquals("Praxis Server", d.name)
         assertTrue(d.connected)
         assertNull(d.connection)
         assertNull(d.gateway)

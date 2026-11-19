@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pangolin"
+            android:text="Praxis"
             android:textColor="?attr/colorOnSurface"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -139,7 +139,7 @@
                         android:layout_weight="1"
                         android:text="Documentation"
                         android:textSize="16sp"
-                        android:textColor="@color/pangolin_primary" />
+                        android:textColor="@color/praxis_primary" />
 
                     <ImageView
                         android:layout_width="16dp"
@@ -172,9 +172,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="How Pangolin Works"
+                        android:text="How Praxis Works"
                         android:textSize="16sp"
-                        android:textColor="@color/pangolin_primary" />
+                        android:textColor="@color/praxis_primary" />
 
                     <ImageView
                         android:layout_width="16dp"
@@ -230,7 +230,7 @@
                         android:layout_weight="1"
                         android:text="Terms of Service"
                         android:textSize="16sp"
-                        android:textColor="@color/pangolin_primary" />
+                        android:textColor="@color/praxis_primary" />
 
                     <ImageView
                         android:layout_width="16dp"
@@ -265,7 +265,7 @@
                         android:layout_weight="1"
                         android:text="Privacy Policy"
                         android:textSize="16sp"
-                        android:textColor="@color/pangolin_primary" />
+                        android:textColor="@color/praxis_primary" />
 
                     <ImageView
                         android:layout_width="16dp"

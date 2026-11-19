@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="@color/pangolin_primary"
+        android:textColor="@color/praxis_primary"
         android:textSize="16sp"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
@@ -28,7 +28,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_arrow_forward"
-        android:tint="@color/pangolin_primary"
+        android:tint="@color/praxis_primary"
         android:contentDescription="@null" />
 
 </LinearLayout>

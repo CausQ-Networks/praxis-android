@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -24,12 +24,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import net.pangolin.Pangolin.databinding.ActivitySignInCodeBinding
-import net.pangolin.Pangolin.util.APIClient
-import net.pangolin.Pangolin.util.AuthManager
-import net.pangolin.Pangolin.util.AccountManager
-import net.pangolin.Pangolin.util.ConfigManager
-import net.pangolin.Pangolin.util.SecretManager
+import com.causq.praxis.databinding.ActivitySignInCodeBinding
+import com.causq.praxis.util.APIClient
+import com.causq.praxis.util.AuthManager
+import com.causq.praxis.util.AccountManager
+import com.causq.praxis.util.ConfigManager
+import com.causq.praxis.util.SecretManager
 
 class SignInCodeActivity : AppCompatActivity() {
 
@@ -42,7 +42,7 @@ class SignInCodeActivity : AppCompatActivity() {
     private lateinit var configManager: ConfigManager
     private lateinit var secretManager: SecretManager
 
-    private var hostname: String = "https://app.pangolin.net"
+    private var hostname: String = "https://app.praxis.causq.com"
     private var hasAutoOpenedBrowser = false
     private var hasLaunchedBrowser = false
     private var isPolling = false
@@ -73,7 +73,7 @@ class SignInCodeActivity : AppCompatActivity() {
         supportActionBar?.title = "Sign In"
 
         // Get hostname from intent
-        hostname = intent.getStringExtra(EXTRA_HOSTNAME) ?: "https://app.pangolin.net"
+        hostname = intent.getStringExtra(EXTRA_HOSTNAME) ?: "https://app.praxis.causq.com"
         
         // Check if this is an auto-start flow (re-authentication)
         isAutoStartFlow = intent.getBooleanExtra("AUTO_START_DEVICE_AUTH", false)
@@ -91,7 +91,7 @@ class SignInCodeActivity : AppCompatActivity() {
 
         // Keep the sign-in API client isolated for its target hostname, but share the
         // process-wide persisted managers and Android Always-On tunnel authority.
-        val runtime = (application as PangolinApplication).runtime
+        val runtime = (application as PraxisApplication).runtime
         secretManager = runtime.secretManager
         accountManager = runtime.accountManager
         configManager = runtime.configManager
@@ -190,7 +190,7 @@ class SignInCodeActivity : AppCompatActivity() {
         }
 
         // Check if this is a deep link callback
-        if (intent?.data?.scheme == "pangolin") {
+        if (intent?.data?.scheme == "praxis") {
             handleDeepLinkCallback()
         } else {
             // Check if we should auto-start (from re-authentication flow)
@@ -346,7 +346,7 @@ class SignInCodeActivity : AppCompatActivity() {
         
         // Handle deep link callback from browser
         intent?.data?.let { uri ->
-            if (uri.scheme == "pangolin") {
+            if (uri.scheme == "praxis") {
                 Log.i(tag, "Received deep link callback via onNewIntent: $uri")
                 handleDeepLinkCallback()
             }
@@ -359,7 +359,7 @@ class SignInCodeActivity : AppCompatActivity() {
                 Log.i(tag, "Starting device auth flow with hostname: $hostname")
                 // This will generate the code and set up initial state
                 val deviceName = android.os.Build.MODEL
-                val appName = "Pangolin Android"
+                val appName = "Praxis Android"
                 
                 val startResponse = apiClient.startDeviceAuth(appName, deviceName, hostname)
                 expiresInSeconds = startResponse.expiresInSeconds

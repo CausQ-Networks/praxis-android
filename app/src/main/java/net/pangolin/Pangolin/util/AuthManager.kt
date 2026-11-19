@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import android.content.Context
 import android.util.Log
@@ -204,7 +204,7 @@ class AuthManager(
             Log.i(tag, "Starting device authentication with hostname: $hostname")
 
             val deviceName = android.os.Build.MODEL
-            val appName = "Pangolin Android"
+            val appName = "Praxis Android"
 
             val startResponse = apiClient.startDeviceAuth(appName, deviceName, hostnameOverride)
 

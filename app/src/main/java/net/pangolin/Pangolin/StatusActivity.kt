@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.content.Intent
 import android.net.Uri
@@ -7,12 +7,12 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import net.pangolin.Pangolin.databinding.ActivityStatusBinding
-import net.pangolin.Pangolin.databinding.ContentStatusBinding
-import net.pangolin.Pangolin.ui.StatusFormattedFragment
-import net.pangolin.Pangolin.ui.StatusJsonFragment
-import net.pangolin.Pangolin.ui.StatusPollingProvider
-import net.pangolin.Pangolin.util.StatusPollingManager
+import com.causq.praxis.databinding.ActivityStatusBinding
+import com.causq.praxis.databinding.ContentStatusBinding
+import com.causq.praxis.ui.StatusFormattedFragment
+import com.causq.praxis.ui.StatusJsonFragment
+import com.causq.praxis.ui.StatusPollingProvider
+import com.causq.praxis.util.StatusPollingManager
 import java.io.File
 
 class StatusActivity : BaseNavigationActivity(), StatusPollingProvider {
@@ -34,7 +34,7 @@ class StatusActivity : BaseNavigationActivity(), StatusPollingProvider {
         contentBinding = ContentStatusBinding.bind(binding.content.root)
 
         val socketManager =
-            (application as PangolinApplication).socketManager
+            (application as PraxisApplication).socketManager
         
 
         statusPollingManager = StatusPollingManager(this, socketManager)

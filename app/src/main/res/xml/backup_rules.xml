@@ -14,5 +14,5 @@
     <exclude domain="sharedpref" path="__androidx_security_crypto_encrypted_prefs_value_keyset__.xml"/>
     
     <!-- Exclude account store since it references secrets that won't be restored -->
-    <exclude domain="file" path="Pangolin/accounts.json"/>
+    <exclude domain="file" path="Praxis/accounts.json"/>
 </full-backup-content>

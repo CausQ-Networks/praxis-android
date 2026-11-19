@@ -14,7 +14,7 @@ import (
 	
 	"unsafe"
 
-	"github.com/fosrl/newt/logger"
+	"github.com/CausQ-Networks/praxis-newt/logger"
 	"golang.org/x/sys/unix"
 )
 
@@ -193,7 +193,7 @@ func NewAndroidLogWriter(logger *Logger) *AndroidLogWriter {
 var appLogger *Logger
 
 func init() {
-	appLogger = NewLogger("PangolinGo")
+	appLogger = NewLogger("PraxisGo")
 	// Log level will be set via setLogLevel
 	appLogger.Info("Logger initialized")
 	

@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.ui
+package com.causq.praxis.ui
 
 import android.content.Intent
 import android.graphics.Color
@@ -11,8 +11,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import net.pangolin.Pangolin.MainActivity
-import net.pangolin.Pangolin.R
+import com.causq.praxis.MainActivity
+import com.causq.praxis.R
 
 /**
  * Fragment that displays the tunnel status as formatted JSON.
@@ -116,5 +116,5 @@ class StatusJsonFragment : Fragment() {
  * Interface that activities should implement to provide access to the StatusPollingManager.
  */
 interface StatusPollingProvider {
-    fun getStatusPollingManager(): net.pangolin.Pangolin.util.StatusPollingManager?
+    fun getStatusPollingManager(): com.causq.praxis.util.StatusPollingManager?
 }

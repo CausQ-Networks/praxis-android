@@ -1,6 +1,6 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
-import net.pangolin.Pangolin.util.TunnelState
+import com.causq.praxis.util.TunnelState
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue

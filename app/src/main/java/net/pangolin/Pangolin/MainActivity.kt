@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.Manifest
 import android.app.Activity
@@ -24,24 +24,24 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-import net.pangolin.Pangolin.databinding.ActivityMainBinding
-import net.pangolin.Pangolin.databinding.ContentMainBinding
-import net.pangolin.Pangolin.util.APIClient
-import net.pangolin.Pangolin.util.AuthManager
-import net.pangolin.Pangolin.util.AccountManager
-import net.pangolin.Pangolin.util.ConfigManager
-import net.pangolin.Pangolin.util.FingerprintManager
-import net.pangolin.Pangolin.util.SecretManager
-import net.pangolin.Pangolin.util.SocketManager
-import net.pangolin.Pangolin.util.TunnelManager
-import net.pangolin.Pangolin.util.TunnelState
-import net.pangolin.Pangolin.util.accountDisplayName
-import net.pangolin.Pangolin.util.userDisplayName
+import com.causq.praxis.databinding.ActivityMainBinding
+import com.causq.praxis.databinding.ContentMainBinding
+import com.causq.praxis.util.APIClient
+import com.causq.praxis.util.AuthManager
+import com.causq.praxis.util.AccountManager
+import com.causq.praxis.util.ConfigManager
+import com.causq.praxis.util.FingerprintManager
+import com.causq.praxis.util.SecretManager
+import com.causq.praxis.util.SocketManager
+import com.causq.praxis.util.TunnelManager
+import com.causq.praxis.util.TunnelState
+import com.causq.praxis.util.accountDisplayName
+import com.causq.praxis.util.userDisplayName
 
 class MainActivity : BaseNavigationActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var contentBinding: ContentMainBinding
-    private lateinit var runtime: PangolinRuntime
+    private lateinit var runtime: PraxisRuntime
 
     // Authentication managers
     private lateinit var apiClient: APIClient
@@ -102,7 +102,7 @@ class MainActivity : BaseNavigationActivity() {
         setContentView(binding.root)
 
         // Reuse the process-wide graph that also handles Android Always-On startup.
-        runtime = (application as PangolinApplication).runtime
+        runtime = (application as PraxisApplication).runtime
         secretManager = runtime.secretManager
         accountManager = runtime.accountManager
         configManager = runtime.configManager
@@ -258,13 +258,13 @@ class MainActivity : BaseNavigationActivity() {
             }
         }
 
-        contentBinding.linkHowPangolinWorks.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.pangolin.net/about/how-pangolin-works"))
+        contentBinding.linkHowPraxisWorks.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.praxis.causq.com/about/how-pangolin-works"))
             startActivity(intent)
         }
 
         contentBinding.linkDocumentation.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.pangolin.net/"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.praxis.causq.com/"))
             startActivity(intent)
         }
 
@@ -430,10 +430,10 @@ class MainActivity : BaseNavigationActivity() {
 
     private fun showStrictPrivateDnsDialog(server: String) {
         MaterialAlertDialogBuilder(this)
-            .setTitle("Private DNS is bypassing Pangolin")
+            .setTitle("Private DNS is bypassing Praxis")
             .setMessage(
                 "Android's Private DNS is set to \"$server\". In this mode Android sends all " +
-                    "DNS lookups directly to that provider, so Pangolin aliases and private " +
+                    "DNS lookups directly to that provider, so Praxis aliases and private " +
                     "resources will not resolve.\n\nTo use them, set Settings → Network & " +
                     "internet → Private DNS to \"Automatic\" or \"Off\"."
             )

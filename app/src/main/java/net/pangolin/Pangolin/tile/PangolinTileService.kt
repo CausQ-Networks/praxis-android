@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.tile
+package com.causq.praxis.tile
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent
@@ -13,12 +13,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import net.pangolin.Pangolin.MainActivity
-import net.pangolin.Pangolin.PangolinApplication
-import net.pangolin.Pangolin.R
-import net.pangolin.Pangolin.util.TunnelManager
+import com.causq.praxis.MainActivity
+import com.causq.praxis.PraxisApplication
+import com.causq.praxis.R
+import com.causq.praxis.util.TunnelManager
 
-class PangolinTileService : TileService() {
+class PraxisTileService : TileService() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var stateWatchJob: kotlinx.coroutines.Job? = null
 
@@ -88,10 +88,10 @@ class PangolinTileService : TileService() {
 
         if (state.isServiceRunning || state.isConnecting) {
             scope.launch {
-                val runtime = (application as PangolinApplication).runtime
+                val runtime = (application as PraxisApplication).runtime
                 if (!runtime.disconnectFromUser()) {
                     Toast.makeText(
-                        this@PangolinTileService,
+                        this@PraxisTileService,
                         R.string.disable_always_on_before_disconnect,
                         Toast.LENGTH_LONG,
                     ).show()
@@ -107,8 +107,8 @@ class PangolinTileService : TileService() {
     private fun setTileState(active: Boolean, label: String, clickable: Boolean) {
         val tile = qsTile ?: return
 
-        tile.contentDescription = "Pangolin VPN"
-        tile.icon = Icon.createWithResource(this, net.pangolin.Pangolin.R.drawable.ic_tile)
+        tile.contentDescription = "Praxis VPN"
+        tile.icon = Icon.createWithResource(this, com.causq.praxis.R.drawable.ic_tile)
 
         tile.state = when {
             !clickable -> Tile.STATE_UNAVAILABLE

@@ -1,4 +1,4 @@
-package net.pangolin.Pangolin.util
+package com.causq.praxis.util
 
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertFalse

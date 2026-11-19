@@ -1,9 +1,9 @@
-package net.pangolin.Pangolin
+package com.causq.praxis
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import net.pangolin.Pangolin.databinding.ActivityAboutBinding
+import com.causq.praxis.databinding.ActivityAboutBinding
 import java.util.Calendar
 
 class AboutActivity : BaseNavigationActivity() {
@@ -34,19 +34,19 @@ class AboutActivity : BaseNavigationActivity() {
 
         // Click listeners for links
         binding.content.tvDocs.setOnClickListener {
-            openUrl("https://docs.pangolin.net")
+            openUrl("https://docs.praxis.causq.com")
         }
 
         binding.content.tvHowItWorks.setOnClickListener {
-            openUrl("https://docs.pangolin.net/about/how-pangolin-works")
+            openUrl("https://docs.praxis.causq.com/about/how-pangolin-works")
         }
 
         binding.content.tvTos.setOnClickListener {
-            openUrl("https://pangolin.net/tos")
+            openUrl("https://praxis.net/tos")
         }
 
         binding.content.tvPrivacy.setOnClickListener {
-            openUrl("https://pangolin.net/privacy")
+            openUrl("https://praxis.net/privacy")
         }
 
         binding.fab.hide()
